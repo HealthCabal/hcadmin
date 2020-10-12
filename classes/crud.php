@@ -15,11 +15,11 @@ class Crud
 
 		 * @param mixed $data - an array containing what is to be stored
 
- 		 * @param mixed $values - a set of parameter markers passed to $conn->prepare() separated by commas that correspond to the number of items in the $data array
+		 * @param mixed $values - a set of parameter markers passed to $conn->prepare() separated by commas that correspond to the number of items in the $data array
 
-         * @param mixed $columns
+		 * @param mixed $columns
 
-         * @return string|on success - "success"; on failure - failure
+		 * @return string|on success - "success"; on failure - failure
 		 ***/
 		$data = implode('","', $data);
 		$data = '"' . $data . '"';
@@ -60,5 +60,19 @@ class Crud
 			return "youcanproceed";
 		}
 	}
+
+
+	function fetchSeries($conn, $tableName)
+	{
+		$query = "SELECT * FROM $tableName";
+		$result = $conn->query($query);
+		if ($conn->affected_rows > 0) {
+			while ($payLoad = $result->fetch_assoc()) {
+				echo "<option value=".$payLoad['series_title'].">".$payLoad['series_title']."</option>";
+			}
+		} else {
+			return "nodatafound";
+		}
+	}
 }
-?>
+$crudmethods = new Crud;

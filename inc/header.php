@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Serein Admin</title>
+  <title>Healthcabal Dashboard</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="ui/vendors/iconfonts/mdi/font/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="ui/vendors/css/vendor.bundle.base.css">

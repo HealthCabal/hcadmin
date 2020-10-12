@@ -16,6 +16,10 @@
  </div>
  <!-- container-scroller -->
  <!-- plugins:js -->
+ <!--script src="https://media-library.cloudinary.com/global/all.js"></script-->
+ 
+
+
  <script src="ui/vendors/js/vendor.bundle.base.js"></script>
  <script src="ui/vendors/js/vendor.bundle.addons.js"></script>
  <!-- endinject -->
