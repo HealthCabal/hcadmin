@@ -76,14 +76,14 @@ class Auth extends Crud
 
     function isLoggedIn()
     {
-        if (basename($_SERVER['PHP_SELF']) == "register.php") {
+        if (basename($_SERVER['PHP_SELF']) == "register.php" || basename($_SERVER['PHP_SELF']) == "login.php") {
             return;
         } else {
             session_start();
             if (!isset($_SESSION['userid'])) {
                 session_start();
                 session_destroy();
-                header("location:logout.php");
+                header("location:login.php");
             }
         }
     }

@@ -1,3 +1,9 @@
+<?php
+require_once("classes/config.php");
+require_once("classes/auth.php");
+
+$checkUsers->isLoggedin();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
