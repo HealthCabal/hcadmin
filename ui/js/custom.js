@@ -14,9 +14,9 @@ function loginUser(){
         if(ajax.readyState == 4 && ajax.status == 200){
             if(ajax.responseText !== "usernameerror"){
                 var ajaxFeedback = ajax.responseText;
-                alert(ajax.responseText);
+                //alert(ajax.responseText);
                 _("loginInfo").innerHTML = "Login successful!";
-                //window.location.assign("index.php");
+                window.location.assign("newarticle.php");
                //setTimeout(redirectUser, 2000)
                 
             }else{

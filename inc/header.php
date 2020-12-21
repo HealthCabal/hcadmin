@@ -1,6 +1,7 @@
 <?php
 require_once("classes/config.php");
 require_once("classes/auth.php");
+require_once("classes/fetchData.php");
 
 $checkUsers->isLoggedin();
 ?>
@@ -21,7 +22,7 @@ $checkUsers->isLoggedin();
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="ui/css/vertical-layout-light/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+  <script src="https://cdn.tiny.cloud/1/p0ycf09ohea74wzte1ao2kjufkefvsrr7kpdbja7hoi70bi2/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="ui/logosmall.png" />

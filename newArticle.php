@@ -37,14 +37,15 @@ $tableName = "hc_series";
             <!---Media Library widget ends here---->
 
             <!----Upload button starts here--->
-            <button id="upload_widget" class="cloudinary-button btn btn-primary pull-right">Upload files</button>
+            <button id="upload_widget" class="cloudinary-button btn btn-primary pull-right">Upload
+              files</button>
 
             <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
 
             <script type="text/javascript">
               var myWidget = cloudinary.createUploadWidget({
                 cloudName: 'healthcabal',
-                uploadPreset: 'my_preset'
+                uploadPreset: 'hc_articles'
               }, (error, result) => {
                 if (!error && result && result.event === "success") {
                   console.log('Done! Here is the image info: ', result.info);
@@ -63,17 +64,28 @@ $tableName = "hc_series";
               </div>
               <div class="form-group">
                 <label for="summernote">Article Body</label>
-                <textarea name="summernote" id="summernote" rows="20">
-
+                <textarea name="" id="" rows="20">
+Start typing article body . . .
                 </textarea>
+
+                <script>
+                  tinymce.init({
+                    selector: 'textarea',
+                    plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+                    toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+                    toolbar_mode: 'floating',
+                    tinycomments_mode: 'embedded',
+                    tinycomments_author: 'Author name',
+                  });
+                </script>
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword4">Search Engine Description</label>
-                <textarea maxlength="150" class="form-control" name="seodescription" id="seodescription" placeholder="Type a brief description of your article here for search engines. 150 characters max"></textarea>
+                <input type="text" maxlength="150" class="form-control" name="seodescription" id="seodescription" placeholder="Type a brief description of your article here for search engines. 150 characters max" /> 
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword4">Article Excerpt</label>
-                <textarea maxlength="255" class="form-control" name="excerpt" name="excerpt" placeholder="Type a brief description of your article here for the website. 255 characters max"></textarea>
+                <input type="text" maxlength="255" class="form-control" name="excerpt" name="excerpt" placeholder="Type a brief description of your article here for the website. 255 characters max" />
               </div>
 
               <div class="form-group">
@@ -87,10 +99,10 @@ $tableName = "hc_series";
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Assign to Author</label>
                     <div class="col-sm-9">
-
                       <select class="form-control" name="author" id="author" style="border:1px solid black; height: 50px">
-                        <option>John Doe</option>
-                        <option>Jane Doe</option>
+                        <?php
+                        $dataLoad->fetchAuthorsDropdown($conn);
+                        ?>
                       </select>
                     </div>
                   </div>
@@ -113,8 +125,9 @@ $tableName = "hc_series";
                     <div class="col-sm-9">
 
                       <select name="reviewer" class="form-control" style="border:1px solid black; height: 50px">
-                        <option>John Doe</option>
-                        <option>Jane Doe</option>
+                        <?php
+                        $dataLoad->fetchAuthorsDropdown($conn);
+                        ?>
                       </select>
                     </div>
                   </div>
@@ -127,8 +140,8 @@ $tableName = "hc_series";
                     <div class="col-sm-9">
 
                       <select name="sponsored" class="form-control" style="border:1px solid black; height: 50px">
-                        <option>Sponsored</option>
-                        <option>Not Sponsored</option>
+                        <option value="0">Not Sponsored</option>
+                        <option value="1">Sponsored</option>
                       </select>
                     </div>
                   </div>
@@ -142,8 +155,9 @@ $tableName = "hc_series";
                     <div class="col-sm-9">
 
                       <select name="parentcat" class="form-control" style="border:1px solid black; height: 50px">
-                        <option>John Doe</option>
-                        <option>Jane Doe</option>
+                        <?php
+                        $dataLoad->fetchParentCategories($conn);
+                        ?>
                       </select>
                     </div>
                   </div>
@@ -157,8 +171,9 @@ $tableName = "hc_series";
                     <div class="col-sm-9">
 
                       <select name="childcat" class="form-control" style="border:1px solid black; height: 50px">
-                        <option>John Doe</option>
-                        <option>Jane Doe</option>
+                        <?php
+                        $dataLoad->fetchChildCategories($conn);
+                        ?>
                       </select>
                     </div>
                   </div>
@@ -171,8 +186,12 @@ $tableName = "hc_series";
                     <div class="col-sm-9">
 
                       <select name="series" class="form-control" style="border:1px solid black; height: 50px">
-                        <option value="NULL" selected="selected" disabled="disabled">Select Series (if applicable)</option>
-                        <?php $crudmethods->fetchSeries($conn, $tableName); ?>
+                        <option value="NULL" selected="selected" disabled="disabled">Select
+                          Series (if applicable)</option>
+                        <?php
+                        $dataLoad->fetchSeries($conn);
+                        ?>
+                      </select>
                       </select>
                     </div>
                   </div>
@@ -186,7 +205,8 @@ $tableName = "hc_series";
                     <div class="col-sm-9">
 
                       <select name="seriesheading" class="form-control" style="border:1px solid black; height: 50px">
-                        <option value="NULL" disabled="disabled" selected="selected">Select One</option>
+                        <option value="NULL" disabled="disabled" selected="selected">Select One
+                        </option>
                         <option value="Overview">Overview</option>
                         <option value="Symptoms">Symptoms</option>
                         <option value="Causes">Causes</option>
