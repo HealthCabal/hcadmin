@@ -63,16 +63,17 @@ $tableName = "hc_series";
                 <input type="text" class="form-control" name="posttitle" id="posttitle" placeholder="Post title">
               </div>
               <div class="form-group">
-                <label for="summernote">Article Body</label>
-                <textarea name="" id="" rows="20">
+                <label for="body">Article Body</label>
+                <textarea name="body" id="" rows="20">
 Start typing article body . . .
                 </textarea>
 
                 <script>
                   tinymce.init({
                     selector: 'textarea',
-                    plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
-                    toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+                    plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink link lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+                    toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table link numlist bullist',
+                    
                     toolbar_mode: 'floating',
                     tinycomments_mode: 'embedded',
                     tinycomments_author: 'Author name',
@@ -85,7 +86,7 @@ Start typing article body . . .
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword4">Article Excerpt</label>
-                <input type="text" maxlength="255" class="form-control" name="excerpt" name="excerpt" placeholder="Type a brief description of your article here for the website. 255 characters max" />
+                <input type="text" maxlength="255" class="form-control" name="excerpt" placeholder="Type a brief description of your article here for the website. 255 characters max" />
               </div>
 
               <div class="form-group">
@@ -100,6 +101,7 @@ Start typing article body . . .
                     <label class="col-sm-3 col-form-label">Assign to Author</label>
                     <div class="col-sm-9">
                       <select class="form-control" name="author" id="author" style="border:1px solid black; height: 50px">
+                        <option value="NULL">Not for an author</option>
                         <?php
                         $dataLoad->fetchAuthorsDropdown($conn);
                         ?>
@@ -125,6 +127,7 @@ Start typing article body . . .
                     <div class="col-sm-9">
 
                       <select name="reviewer" class="form-control" style="border:1px solid black; height: 50px">
+                        <option value="NULL">No Reviewer</option>
                         <?php
                         $dataLoad->fetchAuthorsDropdown($conn);
                         ?>
@@ -172,8 +175,9 @@ Start typing article body . . .
 
                       <select name="childcat" class="form-control" style="border:1px solid black; height: 50px">
                         <?php
-                        $dataLoad->fetchChildCategories($conn);
+                        //$dataLoad->fetchChildCategories($conn);
                         ?>
+                        <option value="0">NULL</option>
                       </select>
                     </div>
                   </div>
@@ -212,6 +216,7 @@ Start typing article body . . .
                         <option value="Causes">Causes</option>
                         <option value="Diagnosis">Diagnosis</option>
                         <option value="Treatment">Treatment</option>
+                        <option value="Treatment">Coping</option>
                       </select>
                     </div>
                   </div>

@@ -6,7 +6,7 @@ class fetchData
         $fetchPeople = "SELECT * FROM hc_users";
         $getData = $conn->query($fetchPeople);
         while ($authorInfo = $getData->fetch_object()) {
-            echo "<option value'".$authorInfo->ID."'>" . $authorInfo->user_fname. " ".$authorInfo->user_fname."</option>";
+            echo "<option value'".$authorInfo->ID."'>" . $authorInfo->user_fname. " ".$authorInfo->user_lname."</option>";
         }
     }
 

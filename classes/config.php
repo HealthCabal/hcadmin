@@ -1,7 +1,7 @@
 <?php
 $localhost = array("127.0.0.1", "::1");
 if (in_array($_SERVER['REMOTE_ADDR'], $localhost)) {
-    $homeurl = "http://appcabal.devs/";
+    $homeurl = "http://localhost/healthcabal/";
     $host = "localhost";
     $username = "root";
     $password = "";
