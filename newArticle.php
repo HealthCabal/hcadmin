@@ -60,19 +60,19 @@ $tableName = "hc_series";
             <form class="forms-sample" method="POST" action="modules/savearticle.php">
               <div class="form-group">
                 <label for="exampleInputName1">Article Title</label>
-                <input type="text" class="form-control" name="posttitle" id="posttitle" placeholder="Post title">
+                <input type="text" class="form-control" name="posttitle" id="posttitle" placeholder="Post title" required="required">
               </div>
               <div class="form-group">
                 <label for="body">Article Body</label>
-                <textarea name="body" id="" rows="20">
+                <textarea name="body" id="" rows="20" required="required">
 Start typing article body . . .
                 </textarea>
 
                 <script>
                   tinymce.init({
                     selector: 'textarea',
-                    plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink link lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
-                    toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table link numlist bullist',
+                    plugins: 'advcode casechange formatpainter autolink link lists checklist media mediaembed pageembed permanentpen powerpaste table advtable',
+                    toolbar: 'addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table link numlist bullist',
                     
                     toolbar_mode: 'floating',
                     tinycomments_mode: 'embedded',
@@ -82,16 +82,16 @@ Start typing article body . . .
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword4">Search Engine Description</label>
-                <input type="text" maxlength="150" class="form-control" name="seodescription" id="seodescription" placeholder="Type a brief description of your article here for search engines. 150 characters max" /> 
+                <input type="text" maxlength="150" class="form-control" name="seodescription" id="seodescription" placeholder="Type a brief description of your article here for search engines. 150 characters max" / required="required"> 
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword4">Article Excerpt</label>
-                <input type="text" maxlength="255" class="form-control" name="excerpt" placeholder="Type a brief description of your article here for the website. 255 characters max" />
+                <input type="text" required="required" maxlength="255" class="form-control" name="excerpt" placeholder="Type a brief description of your article here for the website. 255 characters max" />
               </div>
 
               <div class="form-group">
                 <label for="exampleSelectGender">SEO Keywords</label>
-                <input type="text" class="form-control" name="keywords" id="keywords" id="exampleInputName1" placeholder="Keywords - for search engines. Separate by comas. Eg.: hello, world, test keyword, testing">
+                <input type="text" required="required" class="form-control" name="keywords" id="keywords" placeholder="Keywords - for search engines. Separate by comas. Eg.: hello, world, test keyword, testing">
               </div>
 
 
@@ -100,7 +100,7 @@ Start typing article body . . .
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Assign to Author</label>
                     <div class="col-sm-9">
-                      <select class="form-control" name="author" id="author" style="border:1px solid black; height: 50px">
+                      <select class="form-control" name="author" id="author" style="border:1px solid black; height: 50px" required="required">
                         <option value="NULL">Not for an author</option>
                         <?php
                         $dataLoad->fetchAuthorsDropdown($conn);
@@ -115,7 +115,7 @@ Start typing article body . . .
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Featured Image</label>
                     <div class="col-sm-9">
-                      <input type="text" name="featuredimg" id="featuredimg" class="form-control" placeholder="Image URL: https://example.com/img/img.jpg">
+                      <input type="text" required="required" name="featuredimg" id="featuredimg" class="form-control" placeholder="Image URL: https://example.com/img/img.jpg">
                     </div>
                   </div>
                 </div>
@@ -126,7 +126,7 @@ Start typing article body . . .
                     <label class="col-sm-3 col-form-label">Reviewer</label>
                     <div class="col-sm-9">
 
-                      <select name="reviewer" class="form-control" style="border:1px solid black; height: 50px">
+                      <select required="required" name="reviewer" class="form-control" style="border:1px solid black; height: 50px">
                         <option value="NULL">No Reviewer</option>
                         <?php
                         $dataLoad->fetchAuthorsDropdown($conn);
@@ -142,7 +142,7 @@ Start typing article body . . .
                     <label class="col-sm-3 col-form-label">Sponsored Post?</label>
                     <div class="col-sm-9">
 
-                      <select name="sponsored" class="form-control" style="border:1px solid black; height: 50px">
+                      <select required="required" name="sponsored" class="form-control" style="border:1px solid black; height: 50px">
                         <option value="0">Not Sponsored</option>
                         <option value="1">Sponsored</option>
                       </select>
@@ -157,7 +157,7 @@ Start typing article body . . .
                     <label class="col-sm-3 col-form-label">Parent Category</label>
                     <div class="col-sm-9">
 
-                      <select name="parentcat" class="form-control" style="border:1px solid black; height: 50px">
+                      <select required="required" name="parentcat" class="form-control" style="border:1px solid black; height: 50px">
                         <?php
                         $dataLoad->fetchParentCategories($conn);
                         ?>
@@ -173,7 +173,7 @@ Start typing article body . . .
                     <label class="col-sm-3 col-form-label">Child Category</label>
                     <div class="col-sm-9">
 
-                      <select name="childcat" class="form-control" style="border:1px solid black; height: 50px">
+                      <select required="required" name="childcat" class="form-control" style="border:1px solid black; height: 50px">
                         <?php
                         //$dataLoad->fetchChildCategories($conn);
                         ?>
@@ -189,7 +189,7 @@ Start typing article body . . .
                     <label class="col-sm-3 col-form-label">Series</label>
                     <div class="col-sm-9">
 
-                      <select name="series" class="form-control" style="border:1px solid black; height: 50px">
+                      <select required="required" name="series" class="form-control" style="border:1px solid black; height: 50px">
                         <option value="NULL" selected="selected" disabled="disabled">Select
                           Series (if applicable)</option>
                         <?php
@@ -208,15 +208,12 @@ Start typing article body . . .
                     <label class="col-sm-3 col-form-label">Series Heading</label>
                     <div class="col-sm-9">
 
-                      <select name="seriesheading" class="form-control" style="border:1px solid black; height: 50px">
+                      <select required="required" name="seriesheading" class="form-control" style="border:1px solid black; height: 50px">
                         <option value="NULL" disabled="disabled" selected="selected">Select One
                         </option>
-                        <option value="Overview">Overview</option>
-                        <option value="Symptoms">Symptoms</option>
-                        <option value="Causes">Causes</option>
-                        <option value="Diagnosis">Diagnosis</option>
-                        <option value="Treatment">Treatment</option>
-                        <option value="Treatment">Coping</option>
+                        <?php
+                        $dataLoad->fetchSeries($conn);
+                        ?>
                       </select>
                     </div>
                   </div>
@@ -226,7 +223,7 @@ Start typing article body . . .
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Tags</label>
                     <div class="col-sm-9">
-                      <input name="tags" type="text" placeholder="Input tags here. Separate by commas." class="form-control">
+                      <input required="required" name="tags" type="text" placeholder="Input tags here. Separate by commas." class="form-control">
                     </div>
                   </div>
                 </div>

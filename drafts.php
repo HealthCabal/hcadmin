@@ -23,7 +23,7 @@ $getArticles = $conn->query($query);
                 <div class="card">
 
                     <div class="card-body">
-                        <h4 class="card-title">Articles</h4>
+                        <h4 class="card-title">Drafts/Unpublished Articles</h4>
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -62,7 +62,7 @@ $getArticles = $conn->query($query);
                                             <a class="dropdown-item" href="#">Edit</a>
                                             <a class="dropdown-item danger" href="modules/unpublish.php?id=' . $articles['ID']."&&".$queryString.'">'.$pubText.'</a>
                                             <a class="dropdown-item danger" href="modules/home-featured.php?id=' . $articles['ID'] . '">Set as Hero Featured</a>
-                                            <a class="dropdown-item danger" href="modules/home-featured.php?id=' . $articles['ID'] . '&&home_featured">Set as Home Featured</a>
+                                            <a class="dropdown-item danger" href="modules/home-featured.php?id=' . $articles['ID'] . 'home_featured">Set as Home Featured</a>
                                         </div>
                                 </td>
                                 </tr>';

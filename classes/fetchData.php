@@ -34,6 +34,7 @@ class fetchData
     {
         $fetchSeries = "SELECT * FROM hc_series";
         $getData = $conn->query($fetchSeries);
+        echo "<option value='0'>Not part of a series</option>";
         while ($seriesInfo = $getData->fetch_object()) {
             echo "<option value'".$seriesInfo->ID."'>" . $seriesInfo->series_title."</option>";
         }

@@ -7,7 +7,8 @@ $tableName = "hc_posts";
 $oldSlug = $conn->real_escape_string($_REQUEST['posttitle']);
 
 //strip post title of non-alphanumeric characters
-$newSlug = preg_replace("/[^A-Za-z0-9 ]/", '', $oldSlug);
+$cleanSlug = preg_replace("/[^A-Za-z0-9 ]/", '', $oldSlug);
+$newSlug = str_replace("--", "-", $cleanSlug);
 
 $data[0] = $conn->real_escape_string($_REQUEST['author']);
 $data[1] = $conn->real_escape_string(ucwords($_REQUEST['posttitle']));
@@ -31,5 +32,6 @@ $data[15] = $conn->real_escape_string($_REQUEST['reviewer']);
 $columns = "post_author, post_title, post_content, post_excerpt, post_keywords,".
 "post_seo_desc, post_series, post_series_heading, post_category,".
 "post_child_cat, post_tag, post_slug, post_sponsored, post_featured_img, fact_checked_by";
-
-$doPosts->createPost($conn, $tableName, $data, $columns);
+if($doPosts->createPost($conn, $tableName, $data, $columns)){
+("header:location: ../drafts-list.php?unpublished");
+}

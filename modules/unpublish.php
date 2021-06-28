@@ -6,6 +6,13 @@ $tableName = "hc_posts";
 
 $id = $_REQUEST['id'];
 
-if($doPosts->unpublishPost($conn, $id) == true){
-    header('location:../article-list.php');
-} 
+
+if (isset($_REQUEST['publish'])) {
+    if ($doPosts->publishPost($conn, $id) == true) {
+        header('location:../article-list.php');
+    }
+} else {
+    if ($doPosts->unpublishPost($conn, $id) == true) {
+        header('location:../article-list.php');
+    }
+}
