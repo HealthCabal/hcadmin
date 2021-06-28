@@ -16,7 +16,7 @@ function loginUser(){
                 var ajaxFeedback = ajax.responseText;
                 //alert(ajax.responseText);
                 _("loginInfo").innerHTML = "Login successful!";
-                window.location.assign("newarticle.php");
+                window.location.assign("newArticle.php");
                //setTimeout(redirectUser, 2000)
                 
             }else{
