@@ -18,7 +18,7 @@ class Posts extends Crud
     function unpublishPost($conn, $id)
     {
         $query = "UPDATE hc_posts SET post_status = 0 WHERE ID = $id";
-        if($conn->query($query) == TRUE){
+        i($conn->query($query) == TRUE){
             return true;
         } else {
             return false;
