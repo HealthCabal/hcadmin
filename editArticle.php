@@ -238,7 +238,7 @@ echo $articleInfo['post_content'];
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Tags</label>
                     <div class="col-sm-9">
-                      <input required="required" name="tags" type="text" placeholder="Input tags here. Separate by commas." class="form-control">
+                      <input required="required" name="tags" type="text" value="<?php echo $articleInfo['post_tag'] ?>" class="form-control">
                     </div>
                   </div>
                 </div>

@@ -59,7 +59,7 @@ $getArticles = $conn->query($query);
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                             <a target="_blank" class="dropdown-item" href="' . $homeurl . $articles["post_slug"] . '">View</a>
-                                            <a class="dropdown-item" href="#">Edit</a>
+                                            <a class="dropdown-item" href="editArticle.php?article_id='.$articles[ID].'">Edit</a>
                                             <a class="dropdown-item danger" href="modules/unpublish.php?id=' . $articles['ID']."&&".$queryString.'">'.$pubText.'</a>
                                             <a class="dropdown-item danger" href="modules/home-featured.php?id=' . $articles['ID'] . '">Set as Hero Featured</a>
                                             <a class="dropdown-item danger" href="modules/home-featured.php?id=' . $articles['ID'] . 'home_featured">Set as Home Featured</a>
