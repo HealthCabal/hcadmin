@@ -48,7 +48,6 @@ $query = "UPDATE `hc_posts` SET
 `post_sponsored` = '$data[13]',
 `post_featured_img` = '$data[14]',
 `fact_checked_by` = '$data[15]',
-`post_slug` = '$data[16]',
 `post_tag` = '$data[17]'
 WHERE ID = '$post_id'
 ";

@@ -90,10 +90,10 @@ echo $articleInfo['post_content'];
               </div>
 
 <input type="hidden" value="<?php echo $_GET['article_id']; ?>" name="post_id">
-              <div class="form-group">
+              <!---div class="form-group">
                 <label for="exampleInputPassword4">Article Slug</label>
-                <input type="text" maxlength="150" value="<?php echo $articleInfo['post_slug'] ?>" class="form-control" name="postslug" id="postslug" required="required">
-              </div>
+                <input type="text" maxlength="150" value="<?php //echo $articleInfo['post_slug'] ?>" class="form-control" name="postslug" id="postslug" required="required">
+              </div-->
 
               <div class="form-group">
                 <label for="exampleInputPassword4">Search Engine Description</label>
